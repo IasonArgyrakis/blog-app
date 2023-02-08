@@ -20,7 +20,7 @@ Auth::routes();
 
 Route::get('/',[PostController::class,'index'])->name('index');
 
-Route::get('user/{id}/posts',[UserPostController::class,'index'])->name('user.posts');
+Route::get('user/{user}/posts',[UserPostController::class,'index'])->name('user.posts');
 
 Route::get('post/{slug}',[PostController::class,'view'])->name('post.view');
 
