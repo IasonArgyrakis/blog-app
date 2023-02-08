@@ -1,5 +1,7 @@
 <?php
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/',[\App\Http\Controllers\PostController::class,'index'])->name('index');
+Route::get('/',[PostController::class,'index'])->name('index');
 
-Route::get('posts/{slug}',[\App\Http\Controllers\PostController::class,'view'])->name('post.view');
+Route::get('user/{id}/posts',[UserPostController::class,'index'])->name('user.posts');
+
+Route::get('post/{slug}',[PostController::class,'view'])->name('post.view');
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
